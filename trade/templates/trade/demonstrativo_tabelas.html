@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Título da página -->
+    <title>Demonstrativo das Tabelas</title>
+
+    <!-- Carrega as tags estáticas do Django -->
+    {% load static %}
+
+    <!-- Link para o arquivo CSS específico para a página de tabelas -->
+    <link rel="stylesheet" href="{% static 'trade/tabelas.css' %}">
+</head>
+<body>
+    <!-- Cabeçalho do site -->
+    <header>
+        <!-- Logo do site -->
+        <a href="#" class="logo"><img src="{% static 'trade/images/tradeLogo2.png' %}"></a>
+
+        <!-- Ícone do menu (usado para dispositivos móveis) -->
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <!-- Menu de navegação -->
+        <ul class="navbar">
+            <!-- Link para a página inicial -->
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <!-- Link para a página de demonstrativo de tabelas -->
+            <li><a href="{% url 'demonstrativo_tabelas' %}">Tabelas</a></li>
+            <!-- Link para a galeria de produtos -->
+            <li><a href="{% url 'galeria_produtos' %}">Galeria de Produtos</a></li>
+        </ul>
+
+        <!-- Link para logout -->
+        <div class="logout">
+            <a href="{% url 'login' %}">Logout</a>
+        </div>
+    </header>
+
+    <!-- Container principal da página -->
+    <div class="container">
+        <!-- Título principal da página -->
+        <div class="title">
+            <h1>Tabelas</h1>
+        </div>
+
+        <!-- Conteúdo principal da página -->
+        <main>
+            <!-- Seção de Clientes -->
+            <div class="wiz">
+                <h2>Clientes</h2>
+                <ul>
+                    {% for cliente in clientes %}
+                        <li>Nome: {{ cliente.nomecli }}</li>
+                        <br>
+                        <li>Código: {{ cliente.codcli }}</li>
+                        <br>
+                        <li>Razão Social: {{ cliente.razasoccli }}</li>
+                        <br>
+                        <li>Telefone: {{ cliente.fonecli }}</li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Seção de Fornecedores -->
+            <div class="wiz">
+                <h2>Fornecedores</h2>
+                <ul>
+                    {% for fornecedor in fornecedores %}
+                        <li>Nome: {{ fornecedor.nomeforn }}</li>
+                        <br>
+                        <li>Código: {{ fornecedor.codiforn }}</li>
+                        <br>
+                        <li>Razão Social: {{ fornecedor.razasocforn }}</li>
+                        <br>
+                        <li>Telefone: {{ fornecedor.foneforn }}</li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Seção de Produtos -->
+            <div class="wiz">
+                <h2>Produtos</h2>
+                <ul>
+                    {% for produto in produtos %}
+                        <li>Nome: {{ produto.descprod }}</li>
+                        <br>
+                        <li>Código: {{ produto.codiprod }}</li>
+                        <br>
+                        <li>Preço: {{ produto.valorprod }}</li>
+                        <br>
+                        <li>Situação: {{ produto.situprod }}</li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Seção de Vendas -->
+            <div class="wiz">
+                <h2>Vendas</h2>
+                <ul>
+                    {% for venda in vendas %}
+                        <li>Código: {{ venda.codivend }}</li>
+                        <br>
+                        <li>Valor: {{ venda.valorvend }}</li>
+                        <br>
+                        <li>ID Cliente: {{ venda.idcli_id }}</li>
+                        <br>
+                        <li>Total: {{ venda.totalvend }}</li>
+                        <br>
+                    {% endfor %}
+                </ul>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

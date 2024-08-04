@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Título da Página -->
+    <title>Realizar Venda</title>
+
+    <!-- Carregamento de arquivos estáticos -->
+    {% load static %}
+
+    <!-- Link para o arquivo CSS específico para a página de realizar venda -->
+    <link rel="stylesheet" href="{% static 'trade/realizar_venda.css' %}">
+</head>
+<body>
+    <!-- Navegação -->
+    <header>
+        <!-- Logo da empresa -->
+        <a href="#" class="logo"><img src="{% static 'trade/images/tradeLogo2.png' %}" alt="Logo Trade.Agile"></a>
+
+        <!-- Ícone do menu (pode ser usado para um menu responsivo) -->
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <!-- Menu de navegação -->
+        <ul class="navbar">
+            <!-- Link para a página inicial -->
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <!-- Link para a página de tabelas -->
+            <li><a href="{% url 'demonstrativo_tabelas' %}">Tabelas</a></li>
+            <!-- Link para a galeria de produtos -->
+            <li><a href="{% url 'galeria_produtos' %}">Galeria de Produtos</a></li>
+        </ul>
+
+        <!-- Link para logout -->
+        <div class="logout">
+            <a href="{% url 'login' %}">Logout</a>
+        </div>
+    </header>
+
+    <!-- Corpo principal da página -->
+    <main>
+        <!-- Imagem de fundo ou decorativa para a seção de vendas -->
+        <img src="{% static 'trade/images/vendasBK.png' %}" alt="Imagem de Vendas">
+
+        <!-- Formulário para realizar uma venda -->
+        <form method="post">
+            <!-- Título do formulário -->
+            <h1 class="titulo">Realizar Venda</h1>
+
+            <!-- Token CSRF para proteção contra ataques CSRF -->
+            {% csrf_token %}
+
+            <!-- Campo para selecionar o cliente -->
+            <label for="cliente">Cliente:</label>
+            <select id="cliente" name="cliente">
+                <!-- Loop para listar todos os clientes -->
+                {% for cliente in clientes %}
+                <option value="{{ cliente.idcli }}">{{ cliente.nomecli }}</option>
+                {% endfor %}
+            </select>
+            <br>
+
+            <!-- Campo para selecionar o produto -->
+            <label for="produto">Produto:</label>
+            <select id="produto" name="produto">
+                <!-- Loop para listar todos os produtos -->
+                {% for produto in produtos %}
+                <option value="{{ produto.idprod }}">{{ produto.descprod }}</option>
+                {% endfor %}
+            </select>
+            <br>
+
+            <!-- Campo para inserir a quantidade -->
+            <label for="quantidade">Quantidade:</label>
+            <input type="number" id="quantidade" name="quantidade" min="1">
+            <br>
+
+            <!-- Botão para submeter o formulário -->
+            <button type="submit" class="btn">Realizar Venda</button>
+        </form>
+    </main>
+</body>
+</html>

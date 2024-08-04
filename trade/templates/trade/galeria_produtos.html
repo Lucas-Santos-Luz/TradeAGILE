@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Título da página -->
+    <title>Cadastro de Produtos</title>
+
+    <!-- Carrega as tags estáticas do Django -->
+    {% load static %}
+
+    <!-- Link para o arquivo CSS específico para estilizar a página de produtos -->
+    <link rel="stylesheet" type="text/css" href="{% static 'trade/produtos.css' %}">
+
+    <!-- Link para o arquivo CSS externo das ícones Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Cabeçalho do site -->
+    <header>
+        <!-- Logo do site -->
+        <a href="#" class="logo"><img src="{% static 'trade/images/tradeLogo2.png' %}"></a>
+
+        <!-- Menu de navegação -->
+        <ul class="navbar">
+            <!-- Link para a página inicial -->
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            <!-- Link para a página de demonstrativo de tabelas -->
+            <li><a href="{% url 'demonstrativo_tabelas' %}">Tabelas</a></li>
+            <!-- Link para a galeria de produtos -->
+            <li><a href="{% url 'galeria_produtos' %}">Galeria de Produtos</a></li>
+        </ul>
+
+        <!-- Link para logout -->
+        <div class="logout">
+            <a href="{% url 'login' %}">Logout</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal da página -->
+    <main>
+        <!-- Cartão de produto -->
+        <div class="card">
+            <!-- Imagem do produto -->
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <!-- Nome do produto -->
+            <div class="nome">Nome do produto</div>
+            <!-- Divisória do cartão -->
+            <hr class="card-divider">
+            <!-- Rodapé do cartão com preço e ícone de carrinho -->
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <!-- Repetição dos cartões de produto -->
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <!-- Mais cartões de produto, repetindo o mesmo layout -->
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Repetição do conteúdo principal, com mais cartões de produto -->
+    <main>
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img"><img src="{% static 'trade/images/produtoExemplo.png' %}" alt=""></div>
+            <div class="nome">Nome do produto</div>
+            <hr class="card-divider">
+            <div class="card-footer">
+                <div class="preco">R$ 100</div>
+                <div class="carrinho"><a href="{% url 'realizar_venda' %}"><i class='bx bx-cart-alt'></i></a></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

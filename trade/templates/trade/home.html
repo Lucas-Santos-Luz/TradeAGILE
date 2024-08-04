@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Definindo a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8">
+
+    <!-- Título da página -->
+    <title>Inicio</title>
+
+    <!-- Carrega as tags estáticas do Django -->
+    {% load static %}
+
+    <!-- Link para o arquivo CSS específico para estilizar a página inicial -->
+    <link rel="stylesheet" type="text/css" href="{% static 'trade/home.css' %}">
+</head>
+<body>
+    <!-- Navegação -->
+    <header>
+        <!-- Logo do site -->
+        <a href="#" class="logo"><img src="{% static 'trade/images/tradeLogo2.png' %}"></a>
+
+        <!-- Ícone do menu (para dispositivos móveis, por exemplo) -->
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <!-- Menu de navegação -->
+        <ul class="navbar">
+            <!-- Link para a seção de início -->
+            <li><a href="#inicio">Inicio</a></li>
+            <!-- Link para a página de demonstrativo de tabelas -->
+            <li><a href="{% url 'demonstrativo_tabelas' %}">Tabelas</a></li>
+            <!-- Link para a galeria de produtos -->
+            <li><a href="{% url 'galeria_produtos' %}">Galeria de Produtos</a></li>
+        </ul>
+
+        <!-- Link para logout -->
+        <div class="logout">
+            <a href="{% url 'login' %}">Logout</a>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <div class="main">
+        <!-- Opções de cadastro e vendas -->
+        <div class="opc">
+            <!-- Links para diferentes cadastros e ações -->
+            <a href="{% url 'cadastro_clientes' %}" class="opc1">Cadastrar Clientes</a>
+            <a href="{% url 'cadastro_fornecedores'%}" class="opc1">Cadastrar Fornecedores</a>
+            <a href="{% url 'cadastro_produtos'%}" class="opc1">Cadastrar Produtos</a>
+            <a href="{% url 'realizar_venda' %}" class="opc1">Realizar Vendas</a>
+
+            <br><br>
+
+            <!-- Mensagem de boas-vindas personalizada para o usuário logado -->
+            <div class="texto">
+                <p>Olá, {{ user.username }}! Bem-vind@ à TRADE.Agile <br> o melhor sistema de vendas do Brasil!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção sobre a empresa -->
+    <div class="sobre">
+        <!-- Imagem de ilustrativa -->
+        <div class="mock">
+            <img src="{% static 'trade/images/MacBook Pro Mockup on the Table.png' %}" alt="">
+        </div>
+
+        <!-- Texto sobre os benefícios e características da Trade.Agile -->
+        <p>
+            Na Trade.Agile, transformamos a forma como você gerencia suas vendas. Nosso sistema inovador é projetado para otimizar suas operações comerciais, proporcionando uma experiência de usuário intuitiva e eficiente.
+            <br><br>
+            Com uma interface amigável e ferramentas poderosas, facilitamos o controle de inventário, a gestão de pedidos e o acompanhamento de clientes.
+            <br><br>
+            Seja você um pequeno empresário ou uma grande corporação, a Trade.Agile oferece soluções personalizadas para atender às suas necessidades específicas. Junte-se a nós e descubra como podemos ajudar a impulsionar o seu negócio ao próximo nível.
+        </p>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer">
+            <!-- Seção de navegação no rodapé -->
+            <div class="footer-sec">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'galeria_produtos' %}">Produtos</a></li>
+                    <li><a href="{% url 'demonstrativo_tabelas' %}">Tabelas</a></li>
+                </ul>
+            </div>
+
+            <!-- Seção de contato no rodapé -->
+            <div class="footer-sec">
+                <h4>Contato</h4>
+                <p>Email: contato@trade.agile</p>
+                <p>Telefone: (11) 1234-5678</p>
+                <p>Endereço: Rua Exemplo, 123, São Paulo, SP</p>
+            </div>
+
+            <!-- Parte inferior do rodapé com direitos autorais -->
+            <div class="footer-bot">
+                <p>&copy; 2024 Trade.Agile. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

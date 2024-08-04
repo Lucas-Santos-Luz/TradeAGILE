@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta charset="UTF-8">
+
+    <!-- Título da página -->
+    <title>Login</title>
+
+    <!-- Carrega as tags estáticas do Django -->
+    {% load static %}
+
+    <!-- Link para o arquivo CSS específico para estilizar a página de login -->
+    <link rel="stylesheet" type="text/css" href="{% static 'trade/style.css' %}">
+</head>
+<body>
+    <!-- Cabeçalho com a logo -->
+    <div class="header">
+        <!-- Imagem da logo do sistema -->
+        <img src="{% static 'trade/images/tradeLogo.png' %}" alt="Trade.Agile">
+    </div>
+
+    <!-- Formulário de login -->
+    <div class="formulario">
+        <!-- Formulário que envia dados via método POST -->
+        <form method="post">
+            <!-- Título do formulário de login -->
+            <p class="titulo">Login</p>
+
+            <!-- Token CSRF para segurança -->
+            {% csrf_token %}
+
+            <!-- Renderiza o formulário do Django com campos padrão -->
+            {{ form.as_p }}
+
+            <!-- Botão para enviar o formulário -->
+            <button type="submit" class="btn">Entrar</button><br>
+
+            <!-- Link para a página de registro caso o usuário não tenha uma conta -->
+            <p class="sigin">Não tem uma conta? <a href="{% url 'register' %}">cadastre-se</a></p>
+        </form>
+    </div>
+</body>
+</html>

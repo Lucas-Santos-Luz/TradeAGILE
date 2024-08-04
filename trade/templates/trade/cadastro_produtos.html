@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Título da página -->
+    <title>Cadastro de Produtos</title>
+
+    <!-- Carrega as tags estáticas do Django -->
+    {% load static %}
+
+    <!-- Link para o arquivo CSS do formulário de cadastro de produtos -->
+    <link rel="stylesheet" type="text/css" href="{% static 'trade/cadastro_produtos.css' %}">
+</head>
+<body>
+    <div>
+        <!-- Cabeçalho do site -->
+        <header>
+            <!-- Logo do site -->
+            <a href="#" class="logo"><img src="{% static 'trade/images/tradeLogo2.png' %}"></a>
+
+            <!-- Ícone do menu (usado para dispositivos móveis) -->
+            <div class="bx bx-menu" id="menu-icon"></div>
+
+            <!-- Menu de navegação -->
+            <ul class="navbar">
+                <!-- Link para a página inicial -->
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <!-- Link para a página de demonstrativo de tabelas -->
+                <li><a href="{% url 'demonstrativo_tabelas' %}">Tabelas</a></li>
+                <!-- Link para a galeria de produtos -->
+                <li><a href="{% url 'galeria_produtos' %}">Galeria de Produtos</a></li>
+            </ul>
+
+            <!-- Link para logout -->
+            <div class="logout">
+                <a href="{% url 'login' %}">Logout</a>
+            </div>
+        </header>
+    </div>
+
+    <!-- Conteúdo principal da página -->
+    <main>
+        <!-- Imagem de fundo ou decorativa para a página de cadastro de produtos -->
+        <img src="{% static 'trade/images/produtosBK.png' %}" alt="">
+
+        <!-- Formulário de cadastro de produtos -->
+        <form method="post">
+            <!-- Título do formulário -->
+            <h1 class="titulo">Cadastro de Produtos</h1>
+
+            <!-- Token CSRF para segurança no formulário -->
+            {% csrf_token %}
+
+            <!-- Renderiza os campos do formulário Django automaticamente -->
+            {{ form.as_p }}
+
+            <!-- Quebra de linha para espaçamento -->
+            <br>
+
+            <!-- Botão para submeter o formulário -->
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+    </main>
+</body>
+</html>

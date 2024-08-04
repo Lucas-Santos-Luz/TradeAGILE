@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Título da Página -->
+    <title>Registro</title>
+
+    <!-- Carregamento de arquivos estáticos -->
+    {% load static %}
+
+    <!-- Link para o arquivo CSS específico para a página de registro -->
+    <link rel="stylesheet" type="text/css" href="{% static 'trade/register.css' %}">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <div class="header">
+        <!-- Imagem da logo da empresa -->
+        <img src="{% static 'trade/images/tradeLogo.png' %}" alt="Trade.Agile">
+    </div>
+
+    <!-- Formulário de Registro -->
+    <div class="form">
+        <form method="post">
+            <!-- Título do Formulário -->
+            <p class="titulo">Cadastre-se</p>
+
+            <!-- Token CSRF para proteção contra ataques CSRF -->
+            {% csrf_token %}
+
+            <!-- Renderiza o formulário do Django com campos padrão -->
+            {{ form.as_p }}
+
+            <!-- Botão para submeter o formulário -->
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>
